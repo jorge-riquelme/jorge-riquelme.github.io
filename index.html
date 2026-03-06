@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Portafolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem; background: #1a1a2e; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    nav .logo { font-size: 1.4rem; font-weight: 700; color: #7c83fd; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+    nav ul a:hover { color: #7c83fd; }
+    .hero {
+      min-height: 90vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 2rem; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+    }
+    .hero h1 { font-size: 3rem; color: #fff; margin-bottom: 0.5rem; }
+    .hero h1 span { color: #7c83fd; }
+    .hero p { font-size: 1.2rem; color: #aaa; max-width: 550px; margin: 1rem auto 2rem; }
+    .btn {
+      display: inline-block; padding: 0.8rem 2rem; background: #7c83fd;
+      color: #fff; border-radius: 30px; text-decoration: none; font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover { background: #5a62e8; transform: translateY(-2px); }
+    section { padding: 5rem 3rem; max-width: 1000px; margin: 0 auto; }
+    section h2 { font-size: 2rem; color: #7c83fd; margin-bottom: 2rem; text-align: center; }
+    .about-text { font-size: 1.05rem; line-height: 1.8; color: #bbb; text-align: center; max-width: 700px; margin: 0 auto; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .skill-tag {
+      background: #1e1e3f; border: 1px solid #7c83fd; color: #7c83fd;
+      padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem;
+    }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: #1a1a2e; border-radius: 12px; padding: 1.5rem;
+      border: 1px solid #2a2a4a; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(124,131,253,0.2); }
+    .card h3 { color: #fff; margin-bottom: 0.5rem; }
+    .card p { color: #999; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+    .card a { color: #7c83fd; font-size: 0.85rem; text-decoration: none; font-weight: 600; }
+    .card a:hover { text-decoration: underline; }
+    .contact-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    .contact-links a {
+      color: #7c83fd; text-decoration: none; font-size: 1rem;
+      border: 1px solid #7c83fd; padding: 0.6rem 1.5rem; border-radius: 25px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .contact-links a:hover { background: #7c83fd; color: #fff; }
+    footer { text-align: center; padding: 2rem; color: #555; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Arman</div>
+    <ul>
+      <li><a href="#sobre-mi">Sobre mi</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="hero">
+    <h1>Hola, soy <span>Arman</span> 👋</h1>
+    <p>Desarrollador apasionado por crear experiencias digitales modernas y funcionales.</p>
+    <a href="#proyectos" class="btn">Ver mis proyectos</a>
+  </div>
+  <section id="sobre-mi">
+    <h2>Sobre mi</h2>
+    <p class="about-text">
+      Soy un desarrollador con experiencia en crear soluciones tecnologicas.
+      Me apasiona aprender nuevas tecnologias y resolver problemas de forma creativa.
+      Actualmente buscando nuevas oportunidades para crecer y colaborar en proyectos desafiantes.
+    </p>
+  </section>
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <div class="skills-grid">
+      <span class="skill-tag">HTML &amp; CSS</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Git &amp; GitHub</span>
+      <span class="skill-tag">Data Science</span>
+      <span class="skill-tag">SQL</span>
+    </div>
+  </section>
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>Proyecto 1</h3>
+        <p>Descripcion breve de tu primer proyecto. Que problema resuelve y que tecnologias usaste.</p>
+        <a href="#">Ver en GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>Proyecto 2</h3>
+        <p>Descripcion breve de tu segundo proyecto. Que problema resuelve y que tecnologias usaste.</p>
+        <a href="#">Ver en GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>Proyecto 3</h3>
+        <p>Descripcion breve de tu tercer proyecto. Que problema resuelve y que tecnologias usaste.</p>
+        <a href="#">Ver en GitHub →</a>
+      </div>
+    </div>
+  </section>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-links">
+      <a href="https://github.com/arman2riquelme" target="_blank">GitHub</a>
+      <a href="mailto:tu@email.com">Email</a>
+      <a href="https://linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+  <footer>
+    <p>© 2026 Arman Riquelme · Hecho con GitHub Pages</p>
+  </footer>
+</body>
+</html>
