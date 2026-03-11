@@ -220,7 +220,71 @@
     </div>
   </div>
 
-  <!-- Category 3 -->
+      <div class="card card-detail">
+        <div class="card-section-label">Python &middot; Institutional Analysis</div>
+        <h4>Disaggregated Failure Rate Analysis: Beyond Demographics</h4>
+
+        <div class="detail-block">
+          <div class="block-title">The Problem</div>
+          <p>Class failure rates were tracked institutionally, but reported as aggregate figures — masking the underlying factors driving student underperformance. The question was not just how many students were failing, but which conditions were most strongly associated with failure.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">
+            <span class="rm-icon">+</span> Read more
+          </button>
+          <div class="read-more-content">
+            <p>Existing reports did not disaggregate failure rates by demographic, engagement, or support dimensions, making it difficult to design targeted interventions. Funding Code was treated carefully — subcategories were aggregated to avoid overidentification of specific demographic groups while still capturing the financial dimension of student risk.</p>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <div class="block-title">The Approach</div>
+          <p>Using Python, I cross-referenced Cognos reports to build a multi-dimensional dataset spanning three indicator groups: Demographic Insights, Educational Engagement, and Background and Support. The analysis combined descriptive statistics, clustering, correlation analysis, and linear regression — with a deliberate bias reduction strategy that avoided individual identifiers and program-specific data.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">
+            <span class="rm-icon">+</span> Read more
+          </button>
+          <div class="read-more-content">
+            <p>The dataset was built by cross-referencing multiple Cognos reports — not a single extract. Each indicator group required separate data preparation before the dimensions could be combined for analysis. This foundation also serves as the dimensional structure for a future Power BI implementation, where each indicator group becomes a slicer enabling dynamic filtering by demographic, engagement, and support factors.</p>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <div class="block-title">The Visual</div>
+          <p>The chart shows average failed classes per metric across three indicator groups: Demographic Insights, Educational Engagement, and Background and Support — offering a balanced view among indicators, metrics, and submetrics.</p>
+          <p style="margin-top:0.5rem;">In this recreation using synthetic data, the following patterns can be observed:</p>
+          <ul style="color:#aaa; font-size:0.9rem; line-height:1.7; margin:0.5rem 0 0.5rem 1.2rem;">
+            <li><strong style="color:#ccc;">Trend:</strong> Steady increase from Residency (2.39) to Funding Code (3.37) — left to right across all three groups.</li>
+            <li><strong style="color:#ccc;">Demographics:</strong> Age Range (2.52) emerges as the most significant demographic factor.</li>
+            <li><strong style="color:#ccc;">Engagement:</strong> Shaped primarily by Semester (2.74) and Previous Standing (2.89).</li>
+            <li><strong style="color:#ccc;">Background and Support:</strong> Funding Code (3.37) and Catchment Area (2.95) show the highest average failure rates across all indicators.</li>
+          </ul>
+          <div class="figures-row" style="margin-top:1rem;">
+            <div class="figure-item-large">
+              <img src="images/average_class_failure_rates.png" alt="Figure 1 — Average Class Failure Rates per Metric" onclick="openLightbox(this.src)" />
+              <div class="fig-caption" style="font-size:1rem; font-weight:600; color:#a0a7ff; padding:0.6rem 0.8rem;">Figure 1: Average Class Failure Rates per Metric</div>
+            </div>
+          </div>
+          <p class="figures-note">&#9888;&#65039; Note: Recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
+        </div>
+
+        <div class="detail-block">
+          <div class="block-title">The Finding</div>
+          <p>Financial circumstances, represented by Funding Code, emerged as the strongest predictor of class failure — stronger than gender, age, or residency status. This challenges assumptions that demographic identity is the primary risk factor, and points toward financial support systems as a higher-leverage intervention point.</p>
+        </div>
+
+        <div class="detail-block">
+          <div class="block-title">Transferability</div>
+          <p>This analytical framework applies directly to healthcare (readmission risk), HR (employee turnover), and credit risk modeling — any domain where disaggregated risk analysis can identify systemic factors behind individual outcomes.</p>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Disaggregated Analysis</span>
+          <span class="tag">Risk Modeling</span>
+          <span class="tag">Student Failure</span>
+          <span class="tag">Bias Reduction</span>
+        </div>
+      </div>
+
+    <!-- Category 3 -->
   <div class="project-category">
     <h3>Education Domain Projects</h3>
     <p class="category-desc">Independent pilots and proposals — student retention, early alert systems, academic performance, multi-level integration.</p>
