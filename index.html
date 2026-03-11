@@ -780,6 +780,42 @@
         <p class="case-note">Visual recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
       </div>
 
+      <!-- Case 2: Academic Standing Transition Matrix -->
+      <div class="case-card">
+        <div class="case-tag">Visualization &amp; Dashboards · Python / Power BI</div>
+        <h3 class="case-title">Academic Standing Transition Matrix: Measuring the Real Impact of Early Alerts</h3>
+        <div class="case-section">
+          <div class="case-section-title">The Problem</div>
+          <p>Institutions implement academic alert systems but rarely have a method to measure whether those interventions actually changed student trajectories. Reports show who is at risk — but not whether the system moved them.</p>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">The Approach</div>
+          <p>Using Python, I redesigned the academic standing dataset by assigning each student two states: their standing at the start of the semester and their standing at the end. This creates a transition matrix — borrowed from data science and actuarial modeling — that makes movement between states visible and measurable.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+          <div class="read-more-content">
+            <p>The transformation also serves as a foundation for building risk indices when enriched with campus, demographic, program, and course-level parameters — enabling contextual aggregation that reduces individual identification bias.</p>
+          </div>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">The Visual</div>
+          <p>The heatmap shows student transitions across five academic standing states — Academic Intervention, Academic Probation 1–3, and Good Standing. Each cell represents the number of students who moved from one state (previous semester) to another (current semester). The diagonal represents students who maintained their standing. Off-diagonal cells reveal movement in both directions — recovery toward Good Standing and deterioration into deeper probation tiers.</p>
+          <div class="case-image">
+            <img src="images/academic_transition_heatmap.png" alt="Academic Standing Transition Heatmap" />
+            <div class="case-image-caption">Figure 1: Academic Standing Transition Matrix — student movement across academic standing states between semesters. Recreated with synthetic data for portfolio purposes.</div>
+          </div>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">Longitudinal Potential &amp; Bias Reduction</div>
+          <p>Applying the same transformation consistently across academic periods generates historical metrics — enabling the institution to track whether recovery rates are improving and whether interventions actually shifted trajectories over time.</p>
+          <p style="margin-top:0.6rem;">When results are aggregated by context — program, campus, semester, or demographic group — rather than at the individual level, the matrix reduces identification bias. Risk becomes a property of the learning environment, not a label assigned to the student. This allows institutions to ask a fundamentally different question: not <em>which students are failing</em>, but <em>under which conditions does failure concentrate</em>.</p>
+        </div>
+        <div class="case-section">
+          <div class="case-section-title">Next Step</div>
+          <p>This dataset structure feeds directly into Power BI as a matrix table or Sankey chart, enabling dynamic filtering by campus, program, demographics, and semester — transforming a Python analytical output into an executive dashboard.</p>
+        </div>
+        <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Recreated with synthetic data for portfolio purposes.</p>
+      </div>
+
     </div>
 
     <!-- PANEL: Education Domain -->
