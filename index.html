@@ -785,12 +785,71 @@
     <!-- PANEL: Education Domain -->
     <div id="panel-education" class="project-panel">
       <div class="case-card">
-        <span class="coming-soon">Coming Soon</span>
         <div class="case-tag">Education Domain · Research Pilot</div>
-        <h3 class="case-title">Early Alert System &amp; Multilevel Student Success Architecture</h3>
+        <h3 class="case-title">EWS Pilot: Multilevel Contextual EWS – A Business Intelligence Approach</h3>
+
         <div class="case-section">
-          <p style="color:var(--muted);font-size:0.92rem;">Independently developed proposal based on validated research — including multilevel frameworks from Politecnico di Milano, UCSC-Chile, and Purdue University. Documentation in progress.</p>
+          <div class="case-section-title">Definition</div>
+          <p>The proposed Early Warning System (EWS) is a next-generation Academic Analytics framework that shifts the institutional focus from individual student remediation to a relational, multilevel intelligence model. It integrates a robust BI architecture with longitudinal data analysis to identify risk not as an isolated student trait, but as a dynamic interaction between the learner, the curriculum, and the institution.</p>
         </div>
+
+        <div class="case-section">
+          <div class="case-section-title">The Problem</div>
+          <p>Within Ontario's higher education landscape, institutional data is often trapped in functional silos — preventing a holistic view of the factors driving student attrition. Traditional EWS implementations focus exclusively on the individual student (Micro level), treating academic risk as a learner deficiency while ignoring structural failures within specific subjects or teaching methods.</p>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+          <div class="read-more-content">
+            <p>By focusing only on the Micro level, institutions naturalize systemic problems — failing to recognize when a student's struggle is a symptom of broader issues like "critical subjects" with high failure rates. They also depend on static entry data (e.g., high school GPA), which research confirms has modest predictive utility that fades quickly after the first semester.</p>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">The Architecture</div>
+          <p>The system uses an ETL process to consolidate data from institutional warehouses into a specialized Educational Data Mart, segmented into multidimensional domains — partial grades, enrollment trends, and teaching competencies — enabling real-time visual analytics.</p>
+
+          <div class="case-image">
+            <img src="images/EWS_Diagram.png" alt="EWS Data Architecture and Analytics Layer" />
+            <div class="case-image-caption">Figure 1: EWS Data Architecture &amp; Analytics Layer — from institutional databases through ETL to Risk Index Generation and Early Alert coordination.</div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">The Three Tiers of Action</div>
+          <p>Following validated international frameworks, the EWS organizes intelligence and intervention into three nested levels — Micro, Meso, and Macro — each addressing a different layer of institutional responsibility.</p>
+
+          <div class="case-image">
+            <img src="images/Level_of_EWS.png" alt="Levels of the EWS: Micro, Meso, Macro" />
+            <div class="case-image-caption">Figure 2: EWS Levels of Information — Micro (student risk), Meso (teaching environment), and Macro (institutional outcomes).</div>
+          </div>
+
+          <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+          <div class="read-more-content">
+            <p><strong style="color:var(--text);">Tier 1 – Micro:</strong> Monitors the student's academic vital signs in real-time — Trajectory Risk (historical deviation from program median) and Contingent Risk (current semester performance). First-semester credits earned serve as the most powerful milestone predictor.</p>
+            <p style="margin-top:0.6rem;"><strong style="color:var(--text);">Tier 2 – Meso:</strong> Focuses on the teaching environment. Identifies critical subjects that block student progression and monitors teaching performance indicators to adjust classroom effectiveness.</p>
+            <p style="margin-top:0.6rem;"><strong style="color:var(--text);">Tier 3 – Macro:</strong> Analyzes global barometers — retention trends, effective graduation rates — compared against external benchmarks such as the OECD average.</p>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Analysis Sessions</div>
+          <p>The EWS operates through four structured analysis sessions across the academic year — each with a defined purpose, suggested date, and coordinated actions across academic and support teams.</p>
+
+          <div class="case-image">
+            <img src="images/Analysis_Sessions.png" alt="EWS Analysis Sessions" />
+            <div class="case-image-caption">Figure 3: EWS Analysis Sessions — Monitoring, Tracking, Results Analysis, and Teaching Performance Review.</div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Expected Outcome</div>
+          <p>This framework transforms the EWS into a tool for Educational Justice. Instead of merely identifying students who have already failed, the institution assumes responsibility for optimizing the learning environment — identifying systemic barriers before they lead to student departure.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Research Foundation</div>
+          <p>The multilevel nested analytics approach is validated by research from the Politecnico di Milano, acknowledging that a student's probability of dropping out is highly conditional on their specific program. Additional frameworks draw on UCSC-Chile's multilevel model and Purdue University's Course Signals risk predictor research.</p>
+        </div>
+
+        <p class="case-note">Independently developed proposal based on validated research. Not institutionally adopted — the initiative and design represent original analytical work developed within an institutional reporting role at a post-secondary institution in Canada.</p>
       </div>
     </div>
 
@@ -803,7 +862,7 @@
     <div class="section-divider"></div>
     <p style="color:var(--muted);max-width:480px;margin-bottom:2rem;">Open to opportunities in data analytics, business intelligence, and institutional research across Canada.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-      <a href="mailto:arman2.riquelme@gmail.com" class="btn-outline">arman2.riquelme@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#e9889b848887dbc79b80989c8c85848ca98e84888085c78a8684" class="btn-outline"><span class="__cf_email__" data-cfemail="7011021d111e425e02190105151c1d1530171d11191c5e131f1d">[email&#160;protected]</span></a>
       <a href="https://linkedin.com/in/jorge-riquelme-data" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
   </section>
@@ -835,8 +894,3 @@
       btn.textContent = isOpen ? '+ Read more' : '− Read less';
     }
   </script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
