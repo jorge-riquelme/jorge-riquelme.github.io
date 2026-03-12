@@ -516,7 +516,7 @@
     <div class="section-divider"></div>
     <p style="color:var(--muted);max-width:480px;margin-bottom:2rem;">Open to opportunities in data analytics, business intelligence, and institutional research across Canada.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-      <a href="mailto:arman2.riquelme@gmail.com" class="btn-outline">arman2.riquelme@gmail.com</a>
+      <button class="btn-outline" onclick="copyEmail(this)" title="Click to copy">arman2.riquelme@gmail.com</button>
       <a href="https://linkedin.com/in/jorge-riquelme-data" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
   </section>
@@ -549,6 +549,13 @@
       content.style.display = isOpen ? "none" : "block";
       btn.textContent = isOpen ? "+ Read more" : "\u2212 Read less";
     }
+    function copyEmail(btn) {
+  navigator.clipboard.writeText('arman2.riquelme@gmail.com');
+  const original = btn.textContent;
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => btn.textContent = original, 2000);
+    }
+  
   </script>
 </body>
 </html>
