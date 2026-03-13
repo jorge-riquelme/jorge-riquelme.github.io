@@ -280,6 +280,83 @@
       </div>
     </div>
 
+    <div class="case-card">
+        <div class="case-header" onclick="toggleAccordion(this)">
+          <div class="case-info">
+            <div class="case-tag">Data Auditing &middot; Strategic BI</div>
+            <h3 class="case-title">Cohort Attribution Audit: Resolving Hidden Bias in Retention Metrics</h3>
+          </div>
+          <div class="case-icon">+</div>
+        </div>
+        <div class="case-body">
+          <div class="case-section">
+            <div class="case-section-title">The Audit</div>
+            <p>Institutional retention is often reported as an aggregate figure, assuming a linear progression where "Semester 1" represents the same starting point for all records. This audit identified a critical <strong>Attribution Bias</strong>: the mixing of true freshmen with internal transfer students within program-level cohorts.</p>
+            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+            <div class="read-more-content">
+              <p>The conflict arises from mismatched granularity. While an "Institutional Cohort" correctly tracks a student's first entry to the college, a "Program Cohort" often mislabels internal transfers as new students. This ignores the academic maturity and survival traits of transfers, who enter advanced semesters without facing the high-risk barriers of the true first year.</p>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-title">The Cohort Contradiction</div>
+            <p>Comparison of data integrity status across analysis levels. The current model assumes a linear path that does not exist for 15-20% of the population:</p>
+            <div style="overflow-x:auto;margin-top:1rem;">
+              <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+                <thead>
+                  <tr>
+                    <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Analysis Level</th>
+                    <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Cohort Definition</th>
+                    <th style="text-align:left;padding:0.6rem 0.8rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Data Integrity Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.5rem 0.8rem;color:var(--text);">Institutional</td>
+                    <td style="padding:0.5rem 0.8rem;color:var(--muted);">First entry to University</td>
+                    <td style="padding:0.5rem 0.8rem;color:var(--gold); font-weight:bold;">VALID</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.5rem 0.8rem;color:var(--text);">Program-Specific</td>
+                    <td style="padding:0.5rem 0.8rem;color:var(--muted);">Entry to specific Major</td>
+                    <td style="padding:0.5rem 0.8rem;color:#ff6b6b; font-weight:bold;">INCONSISTENT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-title">Cascading Impact</div>
+            <p>The lack of data atomicity triggers a domino effect across institutional KPIs, leading to skewed strategic decisions:</p>
+            <ul style="margin-top:0.5rem;padding-left:1.2rem;font-size:0.88rem;color:var(--muted);">
+              <li><strong style="color:var(--text);">Retention Inflation:</strong> Transfers (higher success probability) artificially boost averages, masking the real dropout rate of vulnerable freshmen.</li>
+              <li><strong style="color:var(--text);">Time-to-Degree Distortion:</strong> Programs appear more efficient by "importing" graduates who completed 50% of their credits in other departments.</li>
+              <li><strong style="color:var(--text);">Resource Misallocation:</strong> Budget for first-year support is under-prioritized because aggregated data suggests a healthy performance.</li>
+            </ul>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-title">The Solution: Atomic Architecture</div>
+            <p>I proposed a transition toward <strong>Data Atomicity</strong> to restore system integrity. This framework enables dynamic segmentation without losing historical context:</p>
+            <div class="read-more-content" style="display:block; background:rgba(255,215,0,0.05); padding:1rem; border-radius:4px; border-left:3px solid var(--gold);">
+              <ul style="list-style:none;padding-left:0;font-size:0.88rem;color:var(--muted);">
+                <li style="margin-bottom:0.4rem;"><strong style="color:var(--gold);">1. Dual Cohort ID:</strong> Separate identifiers for <code>Entry_Cohort_Institutional</code> and <code>Entry_Cohort_Program</code>.</li>
+                <li style="margin-bottom:0.4rem;"><strong style="color:var(--gold);">2. Origin Flags:</strong> Mandatory classification as <code>First-time</code> or <code>Transfer-in</code>.</li>
+                <li><strong style="color:var(--gold);">3. Academic Seniority:</strong> Normalizing semesters based on "Credits Completed" rather than calendar time.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-title">Transferability</div>
+            <p>This audit logic is a direct parallel to <strong>Churn Analysis</strong> in Retail (mixing new vs. reactivated customers) and <strong>Credit Risk</strong> in Finance (refinancing old debt as new), where aggregated reporting hides systemic failure points.</p>
+          </div>
+          <p class="case-note">Audit developed independently within an institutional reporting role. Findings represent original analytical work on data integrity and cohort modeling.</p>
+        </div>
+      </div>
+
+    
     <!-- PANEL: Visualization & Dashboards -->
     <div id="panel-visualization" class="project-panel">
 
