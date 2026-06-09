@@ -490,15 +490,26 @@
     </div>
 
     <div class="case-section">
-      <div class="case-section-title">Next Step — Live in Power BI</div>
-      <p>A Power BI report built on this flag layer is currently in development. It will be published here as a companion to this case.</p>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;padding:2rem;text-align:center;background:rgba(212,175,55,0.03);">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);letter-spacing:0.1em;">[ IN CONSTRUCTION ]</p>
-      </div>
+    <div class="case-section-title">Live in Power BI</div>
+    <p>A Power BI report built on this flag layer — interact with it directly. Filter by cohort, campus, program, and demographic group to explore retention, persistence, and completion outcomes across the full student lifecycle.</p>
+    <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <iframe
+        title="Multidimensional Analisis"
+        width="100%"
+        height="540"
+        src="https://app.powerbi.com/view?r=eyJrIjoiYjg0OWI1NmMtNDMxYy00NGM2LTgzOTUtYTAxYmZkZThmYjI5IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=c1b720cb9e24c97fa37a"
+        frameborder="0"
+        allowfullscreen="true"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+        style="display:block;">
+      </iframe>
     </div>
-
-    <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Dataset structure illustrated with synthetic data for portfolio purposes.</p>
+    <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
   </div>
+
+  <p class="case-note">Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada. Dataset structure illustrated with synthetic data for portfolio purposes.</p>
+
 </div>
 </div>
 <!-- end panel-visualization -->
@@ -825,6 +836,81 @@
     </div>
 
     <p class="case-note">Visualizations adopted in institutional reports. Dashboard rebuilt with anonymized mock data for portfolio purposes. Numerical values are randomized but calibrated to reflect realistic institutional scales.</p>
+
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag">Visualization &amp; Dashboards &middot; Power BI / Deneb / Vega-Lite</div>
+      <h3 class="case-title">Custom Visual Explorations: Cohort Retention Tree &amp; Temporal Sankey</h3>
+    </div>
+    <div class="case-icon">+</div>
+  </div>
+  <div class="case-body">
+
+    <div class="case-section">
+      <p>Deneb is a custom visual for Power BI that renders Vega-Lite specifications directly on the canvas. It extends what Power BI can display natively — but requires authoring the visual spec manually, understanding its interaction limitations, and building the dataset structure the spec expects. These two explorations document that process: what each visual does, where it works, and where it doesn't.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Context</div>
+      <p>Power BI's native visuals cover most analytical needs — but two recurring scenarios expose their limits: dense cohort tables that sacrifice readability for completeness, and flow diagrams that require filters to navigate time instead of showing it directly. Both explorations originated in an institutional analytics context but are built on frameworks with direct cross-industry applicability — the Temporal Sankey is adapted from an HR workforce mobility visualization by Andrzej Leszkiewicz (RWFD HR Cross-Functional Mobility).</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Cohort Retention Tree</div>
+      <p>A clean, minimal alternative to native matrix tables for cohort tracking. Each row is an intake cohort; each column is a period. Attrition is shown inline as a red delta, retained units as a green bar. The visual is authored in Vega-Lite spec — readable, maintainable, and adaptable to any domain where cohort progression needs to be communicated clearly. Slicer interaction works normally; cross-filtering with other visuals on the page is a known Deneb limitation.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Temporal Sankey</div>
+      <p>A time-aware alternative to the standard Sankey diagram. Instead of relying on filters to navigate across periods, the time dimension is built directly into the horizontal axis — showing retention, internal movement, and exits simultaneously across consecutive periods. Each flow is traceable to individual record IDs. Best used with level filters to control visual density; tooltip support adds a detail layer without cluttering the main view.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Applications</div>
+      <p>The same visual logic applies wherever entities move through states over time:</p>
+      <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">HR &amp; Workforce Analytics</strong> — employee mobility across departments, roles, or seniority levels by hiring cohort; tracking lateral moves, promotions, and exits simultaneously.</li>
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Customer &amp; Subscription Analytics</strong> — cohort retention by acquisition period; identifying at which stage customers churn and where they go.</li>
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Healthcare</strong> — patient progression through treatment stages by intake cohort; readmission and dropout patterns across longitudinal programs.</li>
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Manufacturing &amp; Operations</strong> — tracking units, batches, or suppliers moving between process stages over time.</li>
+        <li><strong style="color:var(--text);">Education &amp; Training</strong> — student or participant flow across program levels, including movement toward advanced or modular credentials.</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Technical Considerations</div>
+      <ul style="list-style:none;padding-left:0;margin-top:0.5rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.5rem;">Both visuals are authored in Vega-Lite spec inside Deneb — maintainable and version-controllable outside Power BI.</li>
+        <li style="margin-bottom:0.5rem;">Deneb visuals do not support cross-filtering with native Power BI visuals on the same page.</li>
+        <li style="margin-bottom:0.5rem;">The Temporal Sankey requires a purpose-built dataset with a previous/current state per record per period — not compatible with standard transactional flat files without transformation.</li>
+        <li>Cross-filter behavior between the Temporal Sankey and other visuals has not been fully tested — requires dedicated validation before production use.</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Live in Power BI</div>
+      <p>Both visuals are embedded below — interact directly with the Cohort Retention Tree and the Temporal Sankey using the report navigation.</p>
+      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+        <iframe
+          title="Deneb Visual"
+          width="100%"
+          height="540"
+          src="https://app.powerbi.com/view?r=eyJrIjoiMjUzZTk0NTktNGEwMC00MGJkLWFmYjUtYWI5NGQyY2MxOWJlIiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=41ca6b8b88c9e66413ec"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="display:block;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
+    </div>
+
+    <p class="case-note">Explorations developed independently within an institutional reporting role at a post-secondary institution in Canada. Adapted from cross-industry frameworks — applicable beyond the education domain. Synthetic data for portfolio purposes.</p>
 
   </div>
 </div>
