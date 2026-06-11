@@ -515,50 +515,85 @@
 <!-- end panel-visualization -->
 
     </div><!-- PANEL: Visualization & Dashboards -->
-    <div id="panel-visualization" class="project-panel">
-      <div class="case-card">
-        <div class="case-header" onclick="toggleAccordion(this)">
-          <div class="case-info">
-            <div class="case-tag">Visualization &amp; Dashboards &middot; Power BI</div>
-            <h3 class="case-title">Student Retention Analysis: From Static Reports to Interactive Dashboards</h3>
-          </div>
-          <div class="case-icon">+</div>
-        </div>
-        <div class="case-body">
-          <div class="case-section">
-            <div class="case-section-title">The Problem</div>
-            <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">The Approach</div>
-            <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. The redesign was iterative — each version tested against the question: can a non-technical stakeholder act on this?</p></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">My Redesign — Program Retention Table</div>
-            <p>An improved tabular view tracking cohort progression across semesters (Semester 1 through Semester 5) on the horizontal axis, with retention percentages on the vertical dimension, segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable.</p>
-            <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
-            <div class="read-more-content"><p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical foundation for the subsequent Power BI implementation, which introduced dynamic filtering and historical benchmarking.</p></div>
-            <div class="case-image" style="margin-top:1.2rem;"><img src="images/2026-03-10 14_55_37-Mock Data_Retention - Excel.png" alt="Cohort Progression Table"/><div class="case-image-caption">Figure 1: Cohort Progression Across Semesters — Program-Level Retention Rate. Visual redesigned with churn analysis principles.</div></div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">The Result</div>
-            <p>The same underlying data, presented with the right structure, became a tool for decision-making rather than a reporting obligation. The vertical axis represents time — each row is a cohort intake. The horizontal axis tracks semester progression. The staircase effect is intentional: newer cohorts have fewer semesters of data, while older cohorts show the full retention trajectory. Stakeholders could identify programs with declining retention, compare cohorts, and segment by domestic and international students — without requiring analytical expertise.</p>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">Next Step</div>
-            <p>Currently building a Power BI implementation enabling dynamic filtering by population and campus, with institutional and program-level retention presented as separate metrics.</p>
-          </div>
-          <div class="case-section">
-            <div class="case-section-title">Transferability</div>
-            <p>This analytical approach mirrors churn analysis in business intelligence — applicable to SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
-          </div>
-          <p class="case-note">Visual recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
-        </div>
+    <div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag">Visualization &amp; Dashboards &middot; Power BI / Deneb / Vega</div>
+      <h3 class="case-title">Student Retention Analysis: From Static Reports to Interactive Dashboards</h3>
+    </div>
+    <div class="case-icon">+</div>
+  </div>
+  <div class="case-body">
+
+    <div class="case-section">
+      <p>A consistent visual language across three iterations — each preserving the same reading logic: rows as cohorts, columns as semesters, attrition visible inline. What changes is the level of interactivity, not the structure. A stakeholder familiar with the static table can read the interactive dashboard without relearning the format.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Problem</div>
+      <p>Retention reports existed but were not fully actionable — visuals were static screenshots embedded in Word documents, making year-over-year comparison difficult and limiting accessibility for non-technical stakeholders. The underlying dataset added complexity: over 20,000 rows, nearly 50 columns, and unidentified transfer students that distorted program-level metrics.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content"><p>The source dataset combined dimensions and calculated fields with coding conventions that evolved over time. Records could not be reliably linked back to the original cohort, and transfer students were not separately identified — making it impossible to distinguish institutional retention from program-level retention without first resolving these structural issues.</p></div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Approach</div>
+      <p>Rather than rebuilding from scratch, I first understood the existing calculation logic — how retention rates were computed, how cohorts were tracked, and critically, how institutional retention differed from program-level retention. From there, I redesigned the visualization applying churn analysis principles: the student as the equivalent of a customer, semester-to-semester retention as the equivalent of churn.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content"><p>Transfer students needed to be identified and separated from the original cohort to produce meaningful program-level metrics. The redesign was iterative — each version tested against the question: can a non-technical stakeholder act on this?</p></div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Iteration 1 — Program Retention Table (Static)</div>
+      <p>An improved tabular view tracking cohort progression across semesters on the horizontal axis, with retention percentages segmented by domestic (RES) and international (NRES) students. The staircase effect makes attrition patterns immediately readable — newer cohorts have fewer semesters of data, while older cohorts show the full retention trajectory.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content"><p>This format represented a significant improvement in accessibility over previous reports, though it remained static. It served as the analytical and visual foundation for the subsequent implementations.</p></div>
+      <div class="case-image" style="margin-top:1.2rem;"><img src="images/Mock Data_Retention - Excel.png" alt="Cohort Progression Table"/><div class="case-image-caption">Figure 1: Cohort Progression Across Semesters — Program-Level Retention Rate. Visual redesigned with churn analysis principles.</div></div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Iteration 2 — Cohort Retention Tree (Deneb / Vega)</div>
+      <p>A visual alternative to the retention table for static reporting contexts. Built with Deneb — a custom visual that renders Vega specifications inside Power BI — each row is an intake cohort, each column a semester. Attrition appears inline as a red delta; retained students as a teal bar. Losses are visible without requiring the reader to compute differences.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content"><p>The spec is authored in Vega — readable, maintainable, and portable. Slicer interaction works normally. For fully dynamic cross-filtering with other visuals on the page, the native Power BI implementation is the appropriate tool.</p></div>
+      <div class="case-image" style="margin-top:1.8rem;max-width:900px;"><img src="images/Cohort Retention Tree.png" alt="Cohort Retention Tree — Deneb/Vega"/><div class="case-image-caption">Figure 2: Cohort Retention Tree — built with Deneb/Vega inside Power BI. Synthetic data for portfolio purposes.</div></div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Iteration 3 — Power BI Interactive Dashboard</div>
+      <p>The same visual logic now fully interactive. The dashboard enables dynamic filtering by campus, school, program, intake, and demographics (domestic/international, gender, first generation). Two complementary views of the same data:</p>
+      <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Native matrix</strong> — the analytical layer with absolute student counts and attrition deltas per semester, filterable by demographic segment.</li>
+        <li><strong style="color:var(--text);">Cohort Retention Tree</strong> — the clean, stakeholder-facing view showing progression and attrition at a glance.</li>
+      </ul>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p>Additional features: current cohorts vs historical average retention line chart (2021–2024 baseline), KPI cards (Average GPA, At Risk &amp; Probation count, Completion Rate), and a contextual narrative card showing the active filter selection. Institutional and program-level retention are presented as separate metrics — a distinction that requires resolving transfer student records before any visualization is possible.</p>
       </div>
+      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+        <iframe
+          title="Student Retention Dashboard"
+          width="100%"
+          height="540"
+          src="https://app.powerbi.com/view?r=eyJrIjoiZmVkNjEyMjQtNTVhMC00MTM2LTliZWMtNjVkOTA5ZTAwYTE4IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=c1b720cb9e24c97fa37a"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="display:block;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Transferability</div>
+      <p>This analytical approach mirrors churn analysis in business intelligence — applicable to SaaS customer retention, patient follow-up in healthcare, employee retention in HR, or client persistence in financial services.</p>
+    </div>
+
+    <p class="case-note">Visual recreated with synthetic data for portfolio purposes. Analysis developed independently within an institutional reporting role at a post-secondary institution in Canada.</p>
+  </div>
+</div>
 
       <div class="case-card">
         <div class="case-header" onclick="toggleAccordion(this)">
