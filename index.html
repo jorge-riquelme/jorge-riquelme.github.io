@@ -1040,7 +1040,109 @@
     <p class="case-note">Built on a public Kaggle dataset. No institutional or proprietary data involved.</p>
   </div>
 </div>
+  
+<div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag">Visualization &amp; Dashboards &middot; Python / Power BI / Manufacturing</div>
+      <h3 class="case-title">Factory OEE &amp; Downtime — Manufacturing Performance Dashboard</h3>
+    </div>
+    <div class="case-icon">+</div>
   </div>
+  <div class="case-body">
+
+    <div class="case-section">
+      <div class="case-section-title">Context</div>
+      <p>Public Kaggle dataset (<a href="https://www.kaggle.com/datasets/dubltap/factory-oee-and-downtime-synthetic-starter-dataset" target="_blank" style="color:var(--gold);text-decoration:none;">CC0 Public Domain</a>) originally designed for predictive maintenance tutorials and machine learning feature engineering — not for operational dashboards. This project deliberately repurposed it to answer a different question: can a structured BI dashboard be built on top of a PdM-oriented dataset to deliver operational manufacturing intelligence?</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p>The dataset generates minute-by-minute synthetic data for a two-machine production line using a companion Python notebook. This case also demonstrates transferability of the same analytical framework — applied previously to post-secondary education and retail — to a manufacturing and industrial context.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Problem</div>
+      <p>The original dataset had no analytical framework, no business questions, and several inconsistencies that required resolution before any meaningful analysis could be produced.</p>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Dataset duration:</strong> Generated for only 3 days by default — insufficient for trend analysis. Extended to 30 days by modifying the companion notebook parameters.</li>
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">IDEAL_RATE:</strong> Set to 6 units/min by default — producing Performance values exceeding 100%, which is operationally invalid. Adjusted to 8 units/min based on observed peak production output and industry benchmarks.</li>
+          <li style="margin-bottom:0.6rem;"><strong style="color:var(--text);">Scrap model:</strong> Binary (0 or 1 per minute) — a simplification that underrepresents real-world quality loss but sufficient for OEE Quality calculations at the aggregate level.</li>
+          <li><strong style="color:var(--text);">Production distribution:</strong> Follows a Poisson distribution with mean = 6 — by design, the process is statistically stable with no degradation patterns. Performance loss is systematic and constant, not event-driven.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Approach</div>
+      <p>Four-page interactive dashboard structured around a diagnostic narrative arc:</p>
+      <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Page 1</strong> — "What is the current OEE state of the plant?" Monthly performance summary by machine and shift.</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Page 2</strong> — "Where is effectiveness being lost?" Loss waterfall (Availability, Performance, Quality) + Downtime Pareto analysis.</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Page 3</strong> — "Is the machine running consistently?" Statistical Process Control (X̄ chart) with UCL/LCL to detect process instability.</li>
+        <li><strong style="color:var(--text);">Page 4</strong> — "What would it take to reach the 75% Manufacturing Standard?" OEE improvement scenario simulation combining downtime reduction and Performance targets.</li>
+      </ul>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <p style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Key Metrics:</strong> OEE, Availability, Performance, Quality, Downtime Minutes by Cause, Revenue per Unit, Process Stability %, Out-of-Control Points.</p>
+        <p><strong style="color:var(--text);">DAX Patterns:</strong> <code style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);">SWITCH</code> for dynamic scenario simulation, <code style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);">CALCULATE + ALL</code> for context override, <code style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);">FILTER</code> for out-of-control detection, waterfall decomposition via Loss Category table, <code style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--gold);">SELECTEDVALUE</code> for context-aware narrative cards.</p>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Key Findings</div>
+      <ul style="list-style:none;padding-left:0;margin-top:0.5rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.5rem;">Plant OEE: <strong style="color:var(--gold);">55.3%</strong> — significantly below the 75% Manufacturing Standard.</li>
+        <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Performance loss (35.9%)</strong> is the dominant driver — not downtime (8.6%) or quality (0.2%).</li>
+        <li style="margin-bottom:0.5rem;">Eliminating the top 3 downtime causes (Mechanical, Changeover, Electrical) only recovers 3 OEE points — insufficient alone.</li>
+        <li style="margin-bottom:0.5rem;">Reaching <strong style="color:var(--text);">80% Performance efficiency</strong> combined with top 3 downtime reduction would achieve <strong style="color:var(--gold);">76.9% OEE</strong> — exceeding the 75% target.</li>
+        <li>SPC analysis confirms the process is statistically stable — Performance gap is structural, not caused by equipment instability.</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Known Limitations</div>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Read more</button>
+      <div class="read-more-content">
+        <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
+          <li style="margin-bottom:0.5rem;">IDEAL_RATE = 8 units/min is an analytical assumption, not a manufacturer specification.</li>
+          <li style="margin-bottom:0.5rem;">Synthetic data with fixed Poisson distribution does not capture real-world degradation, micro-stops, or speed variation.</li>
+          <li style="margin-bottom:0.5rem;">SPC signals appear only above UCL — no downward trends present by design.</li>
+          <li>With only 2 machines and 30 days, findings are illustrative rather than statistically robust.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Impact</div>
+      <p>Demonstrates that a structured OEE diagnostic dashboard can be built on top of a PdM-oriented dataset — establishing the descriptive analytical baseline that a future Predictive Maintenance model would require. Also demonstrates transferability of the same BI methodology across three domains: post-secondary education, retail, and manufacturing.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Live in Power BI</div>
+      <p>Four-page interactive dashboard — navigate between OEE Overview, Loss Analysis, SPC, and Scenario Simulation using the report controls.</p>
+      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+        <iframe
+          title="Manufacturing Performance Dashboard"
+          width="100%"
+          height="400"
+          src="https://app.powerbi.com/view?r=eyJrIjoiMWU0OWRkYzQtY2MxZi00ODA0LTk0ZmMtZjVmYTI5YWI3ZjI3IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="display:block;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
+    </div>
+
+    <p class="case-note">Built on a public Kaggle dataset (CC0 Public Domain). IDEAL_RATE adjustment documented as an analytical assumption. Dashboard developed independently for portfolio purposes.</p>
+
+  </div>
+</div>
+</div>
     <!-- end panel-commercial -->
   
   <section id="contact" style="border-top:1px solid var(--border);">
