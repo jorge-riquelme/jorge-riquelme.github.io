@@ -58,6 +58,9 @@
     .cat-desc{font-size:0.8rem;color:var(--muted);font-weight:300;line-height:1.5;}
     .project-panel{display:none;}
     .project-panel.active{display:block;}
+    /* Power BI responsive embed — canvas 1600x800 → ratio 2:1 */
+    .pbi-embed{position:relative;width:100%;height:0;padding-bottom:50%;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;background:var(--bg-card);}
+    .pbi-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
     /* ACCORDION */
     .case-card{background:var(--bg-card);border:1px solid var(--gold-soft);border-radius:4px;margin-bottom:1.2rem;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
     .case-card:hover{border-color:var(--gold);}
@@ -593,18 +596,14 @@
     <div class="case-section">
     <div class="case-section-title">Live in Power BI</div>
     <p>A Power BI report built on this flag layer — interact with it directly. Filter by cohort, campus, program, and demographic group to explore retention, persistence, and completion outcomes across the full student lifecycle.</p>
-    <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+    <div class="pbi-embed">
       <iframe
         title="Multidimensional Analisis"
-        width="100%"
-        height="540"
         src="https://app.powerbi.com/view?r=eyJrIjoiYjg0OWI1NmMtNDMxYy00NGM2LTgzOTUtYTAxYmZkZThmYjI5IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=c1b720cb9e24c97fa37a"
         frameborder="0"
         allowfullscreen="true"
         loading="lazy"
-        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-        style="display:block;">
-      </iframe>
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
     </div>
     <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
   </div>
