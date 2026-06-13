@@ -58,9 +58,16 @@
     .cat-desc{font-size:0.8rem;color:var(--muted);font-weight:300;line-height:1.5;}
     .project-panel{display:none;}
     .project-panel.active{display:block;}
-    /* Power BI responsive embed — canvas 1600x800 → ratio 2:1 */
-    .pbi-embed{position:relative;width:100%;height:0;padding-bottom:50%;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;background:var(--bg-card);}
-    .pbi-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
+    /* Power BI responsive embed classes */
+    .pbi-17x9{position:relative;width:100%;height:0;padding-bottom:52.94%;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;background:var(--bg-card);}
+    .pbi-17x9 iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
+
+    .pbi-2x1{position:relative;width:100%;height:0;padding-bottom:50%;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;background:var(--bg-card);}
+    .pbi-2x1 iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
+
+    .pbi-16x9{position:relative;width:100%;height:0;padding-bottom:56.25%;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;background:var(--bg-card);}
+    .pbi-16x9 iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;}
+
     /* ACCORDION */
     .case-card{background:var(--bg-card);border:1px solid var(--gold-soft);border-radius:4px;margin-bottom:1.2rem;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
     .case-card:hover{border-color:var(--gold);}
@@ -596,7 +603,7 @@
     <div class="case-section">
     <div class="case-section-title">Live in Power BI</div>
     <p>A Power BI report built on this flag layer — interact with it directly. Filter by cohort, campus, program, and demographic group to explore retention, persistence, and completion outcomes across the full student lifecycle.</p>
-    <div class="pbi-embed">
+    <div class="pbi-2x1">
       <iframe
         title="Multidimensional Analisis"
         src="https://app.powerbi.com/view?r=eyJrIjoiYjg0OWI1NmMtNDMxYy00NGM2LTgzOTUtYTAxYmZkZThmYjI5IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=c1b720cb9e24c97fa37a"
@@ -672,18 +679,14 @@
       <div class="read-more-content">
         <p>Additional features: current cohorts vs historical average retention line chart (2021–2024 baseline), KPI cards (Average GPA, At Risk &amp; Probation count, Completion Rate), and a contextual narrative card showing the active filter selection. Institutional and program-level retention are presented as separate metrics — a distinction that requires resolving transfer student records before any visualization is possible.</p>
       </div>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-17x9">
         <iframe
           title="Student Retention Dashboard"
-          width="100%"
-          height="540"
           src="https://app.powerbi.com/view?r=eyJrIjoiZmVkNjEyMjQtNTVhMC00MTM2LTliZWMtNjVkOTA5ZTAwYTE4IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=c1b720cb9e24c97fa37a"
           frameborder="0"
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
     </div>
@@ -750,18 +753,14 @@
           <div class="case-section">
             <div class="case-section-title">Next Step — Live in Power BI</div>
             <p>This dataset structure feeds directly into Power BI as a Sankey chart, enabling dynamic filtering by campus, program, demographics, and semester. The model below is a working implementation built on mock data — interact with it directly:</p>
-            <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+            <div class="pbi-16x9">
   <iframe
     title="Transfers Mock"
-    width="100%"
-    height="400"
     src="https://app.powerbi.com/view?r=eyJrIjoiZmM3OGExMjktM2YzYi00YzM1LWI3MzMtNTZkMDJmOWNhNzBiIiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9"
     frameborder="0"
     allowfullscreen="true"
     loading="lazy"
-    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-    style="display:block;">
-  </iframe>
+    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
 </div>
             <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — mock data for portfolio purposes. Built with Power BI Publish to Web.</p>
           </div>
@@ -833,18 +832,14 @@
     <div class="case-section">
       <div class="case-section-title">The Dashboard</div>
       <p>Working implementation built on anonymized mock data — interact with it directly:</p>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-2x1">
         <iframe
           title="CPR Analytics Pilot"
-          width="100%"
-          height="500"
-          src="https://app.powerbi.com/view?r=eyJrIjoiYTExNTUyZjYtNjg0Zi00Yjg1LWFkMjgtODJkZjA0ZWJmOWE3IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=6649102b2b026c85c89b" 
+          src="https://app.powerbi.com/view?r=eyJrIjoiYTExNTUyZjYtNjg0Zi00Yjg1LWFkMjgtODJkZjA0ZWJmOWE3IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=6649102b2b026c85c89b"
           frameborder="0"
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — anonymized mock data for portfolio purposes. Built with Power BI Publish to Web.</p>
     </div>
@@ -937,18 +932,14 @@
     <div class="case-section">
       <div class="case-section-title">The Dashboard</div>
       <p>Working implementation built on anonymized mock data — interact with it directly:</p>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-16x9">
         <iframe
           title="Strategic Enrolment Management (SEM) — BI Pilot"
-          width="100%"
-          height="500"
           src="https://app.powerbi.com/view?r=eyJrIjoiNmFlMWYzZjItNGUzNS00YjY4LThjMTUtZDNjOWVmYmIzNGQyIiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=a530388e60030ac15d90"
           frameborder="0" 
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — anonymized mock data for portfolio purposes. Built with Power BI Publish to Web.</p>
     </div>
@@ -1031,18 +1022,14 @@
     <div class="case-section">
       <div class="case-section-title">Live in Power BI</div>
       <p>Both visuals are embedded below — interact directly with the Cohort Retention Tree and the Temporal Sankey using the report navigation.</p>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-16x9">
         <iframe
           title="Deneb Visual"
-          width="100%"
-          height="540"
           src="https://app.powerbi.com/view?r=eyJrIjoiMjUzZTk0NTktNGEwMC00MGJkLWFmYjUtYWI5NGQyY2MxOWJlIiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=41ca6b8b88c9e66413ec"
           frameborder="0"
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
     </div>
@@ -1154,18 +1141,14 @@
     </div>
     <div class="case-section">
       <div class="case-section-title">Dashboard</div>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-16x9">
         <iframe
           title="Adidas BI Analisis"
-          width="100%"
-          height="540"
           src="https://app.powerbi.com/view?r=eyJrIjoiYjU3ZWQ4MzctYzU0Mi00NDZmLWE5ZWUtMzU3MzZkMDg3MzA1IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9"
           frameborder="0"
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Dataset retrieved from Kaggle. Final layout, color palette, and design are adapted for the target platform (SharePoint or embedded app) upon deployment.</p>
     </div>
@@ -1258,18 +1241,14 @@
     <div class="case-section">
       <div class="case-section-title">Live in Power BI</div>
       <p>Four-page interactive dashboard — navigate between OEE Overview, Loss Analysis, SPC, and Scenario Simulation using the report controls.</p>
-      <div style="margin-top:1.2rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;">
+      <div class="pbi-17x9">
         <iframe
           title="Manufacturing Performance Dashboard"
-          width="100%"
-          height="540"
           src="https://app.powerbi.com/view?r=eyJrIjoiMWU0OWRkYzQtY2MxZi00ODA0LTk0ZmMtZjVmYTI5YWI3ZjI3IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=accbbe70bbae0c4079dc"
           frameborder="0"
           allowfullscreen="true"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="display:block;">
-        </iframe>
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
       </div>
       <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed — synthetic data for portfolio purposes. Built with Power BI Publish to Web.</p>
     </div>
