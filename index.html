@@ -13,16 +13,16 @@
 
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-    :root { --bg:#1A1C1E; --bg-card:#22252A; --text:#F2F2F2; --muted:#9BA4B0; --gold:#D4AF37; --gold-dim:rgba(212,175,55,0.15); --gold-soft:rgba(212,175,55,0.3); --border:rgba(155,164,176,0.1); }
+    :root { --bg:#1A1C1E; --bg-card:#22252A; --text:#E6E6E6; --muted:#9BA4B0; --gold:#D4AF37; --gold-dim:rgba(212,175,55,0.15); --gold-soft:rgba(212,175,55,0.3); --border:rgba(155,164,176,0.1); }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:"Inter",sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4rem;background:rgba(26,28,30,0.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0.8rem 4rem 0.5rem;background:rgba(26,28,30,0.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
     .nav-logo{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:1rem;color:var(--gold);letter-spacing:0.05em;text-decoration:none;}
-    .nav-links{display:flex;gap:2.5rem;lisht-style:none;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-weight:400;font-size:0.875rem;letter-spacing:0.03em;transition:color 0.2s;}
     .nav-links a:hover{color:var(--gold);}
-    #hero{min-height:85vh;display:flex;align-items:center;padding:0 4rem;position:relative;overflow:hidden;}
+    #hero{min-height:60vh;display:flex;align-items:center;padding:4rem 4rem 2rem;position:relative;overflow:hidden;}
     #hero::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#1A1C1E 60%,#1f2226 100%);z-index:0;}
     #hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0;}
     .hero-container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;width:100%;align-items:center;}
@@ -42,11 +42,11 @@
     .section-divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem;}
     #about p{color:var(--muted);font-weight:300;font-size:1.05rem;max-width:780px;margin-bottom:1.2rem;letter-spacing:0.3px;}
     #about p strong{color:var(--text);font-weight:400;}
-    #skills{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem;max-width:1200px;margin:0 auto;}
-    .skills-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem;}
-    .skill-pill{padding:0.4rem 1rem;border:1px solid var(--gold-soft);color:var(--muted);border-radius:4px;font-size:0.8rem;font-weight:400;letter-spacing:0.03em;transition:all 0.2s ease;cursor:default;}
+    #skills{margin:0 0 3rem;}
+    .skills-grid{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0;}
+    .skill-pill{padding:0.3rem 0.8rem;border:1px solid var(--gold-soft);color:var(--muted);border-radius:4px;font-size:0.72rem;font-weight:400;letter-spacing:0.03em;transition:all 0.2s ease;cursor:default;}
     .skill-pill:hover{border-color:var(--gold);color:var(--gold);}
-    #projects{max-width:1200px;margin:0 auto;padding:6rem 4rem;}
+    #projects{max-width:1200px;margin:0 auto;padding:4rem 4rem;}
     .category-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3.5rem;}
     .category-card{padding:1.5rem;background:var(--bg-card);border:1px solid var(--gold-soft);border-radius:4px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;}
     .category-card::before{content:"";position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width 0.3s ease;}
@@ -82,14 +82,45 @@
             .case-image img{width:100%;display:block;image-rendering:auto;filter:contrast(1.02) saturate(1.0);}
     .case-image-caption{font-size:0.75rem;color:var(--muted);font-style:italic;padding:0.4rem 0.5rem 0.75rem;}
     .case-note{font-size:0.75rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:1rem;margin-top:1.5rem;}
-    footer{border-top:1px solid var(--border);padding:3rem 4rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .bi-flow{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 4rem;max-width:1200px;margin:0 auto;}
+    .bi-flow-label{font-size:0.75rem;font-weight:400;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .bi-flow-title{font-family:'Inter',sans-serif;font-weight:400;font-size:clamp(1.2rem,2.2vw,1.8rem);color:#D9D9D9;margin-bottom:1.25rem;line-height:1.2;}
+    .bi-flow-divider{width:48px;height:2px;background:var(--gold);margin-bottom:1rem;}
+    .bi-flow-intro{font-size:0.95rem;color:var(--muted);max-width:640px;margin-bottom:0.75rem;letter-spacing:0.02em;}
+    .bi-flow-note{font-size:0.82rem;color:var(--muted);font-style:italic;letter-spacing:0.02em;margin-bottom:0.6rem;}
+    .bi-flow-pills-row{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:2.25rem;}
+    footer{border-top:1px solid var(--border);padding:1rem 1rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
     .footer-name{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--gold);font-size:0.9rem;}
     .footer-links{display:flex;gap:2rem;}
     .footer-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:400;transition:color 0.2s;}
     .footer-links a:hover{color:var(--gold);}
     .footer-copy{color:var(--muted);font-size:0.75rem;width:100%;margin-top:0.5rem;}
+
+    /* ===== BI FLOW SECTION (For business owners) — START ===== */
+    .stage-row{display:grid;grid-template-columns:1.1fr 48px 1fr;align-items:center;margin-bottom:1.4rem;}
+    .stage-left .stage-label{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:0.68rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .stage-q{border:1px solid var(--border);border-radius:4px;padding:0.85rem 1.1rem;font-size:0.95rem;color:var(--text);font-weight:300;line-height:1.5;background:rgba(255,255,255,0.02);}
+    .stage-arrow{display:flex;align-items:center;justify-content:center;}
+    .flow-card{background:var(--bg-card);border:1px solid var(--gold-soft);border-radius:4px;padding:0.9rem 1.2rem;transition:border-color 0.3s,box-shadow 0.3s;}
+    .flow-card:hover{border-color:var(--gold);box-shadow:0 4px 20px var(--gold-dim);}
+    .flow-card.final{border-color:var(--gold);}
+    .flow-card-title{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:0.68rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.35rem;}
+    .flow-card-headline{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;}
+    .flow-card-desc{font-size:0.8rem;color:var(--muted);line-height:1.5;}
+    .flow-pills-row{display:flex;flex-wrap:wrap;gap:0.4rem;}
+    .flow-pill{padding:0.25rem 0.7rem;border:1px solid var(--gold-soft);border-radius:4px;font-size:0.72rem;color:var(--muted);}
+    .bi-flow-content{display:none;margin-top: 2rem;}
+    .bi-flow-content.open{display:block;}
+    /* ===== BI FLOW SECTION — END ===== */
+
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{gap:1.2rem;}#hero{padding-top:8rem;padding-bottom:4rem;height:auto;}.hero-container{grid-template-columns:1fr;gap:3rem;}.hero-pillars{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:2rem;}#hero,section,#projects,#skills,footer{padding-left:1.5rem;padding-right:1.5rem;}.category-nav{grid-template-columns:1fr;}.case-header{padding:1.2rem 1.5rem;}.case-card.open .case-body{padding:1rem 1.5rem 2rem;}footer{flex-direction:column;align-items:flex-start;}}
+    @media(max-width:768px){nav{padding:1rem 1.5rem;}.nav-links{gap:1.2rem;}#hero{padding-top:8rem;padding-bottom:4rem;height:auto;}.hero-container{grid-template-columns:1fr;gap:3rem;}.hero-pillars{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:2rem;}#hero,section,#projects,#skills,footer{padding-left:1.5rem;padding-right:1.5rem;}.category-nav{grid-template-columns:1fr;}.case-header{padding:1.2rem 1.5rem;}.case-card.open .case-body{padding:1rem 1.5rem 2rem;}footer{flex-direction:column;align-items:flex-start;}
+      /* BI flow — mobile */
+      #bi-flow{padding-left:1.5rem;padding-right:1.5rem;}
+      .stage-row{grid-template-columns:1fr;gap:0.4rem;margin-bottom:1.6rem;}
+      .stage-arrow svg{transform:rotate(90deg);}
+      .stage-arrow{padding:0.1rem 0;}
+    }
   </style>
 </head>
 <body>
@@ -103,6 +134,7 @@
     </ul>
   </nav>
 
+  <!-- ===== HERO SECTION — START ===== -->
   <section id="hero">
     <div class="hero-container">
       <div class="hero-main">
@@ -119,44 +151,112 @@
   </div>
     </div>
   </section>
+  <!-- ===== HERO SECTION — END ===== -->
 
-  <section id="about">
-    <p class="section-label">About</p>
-    <h2 class="section-title">Organizational Intelligence<br>Through Rigorous Analysis</h2>
-    <div class="section-divider"></div>
-    
-    <p>
-  I'm a <strong>Data Analyst & BI Developer</strong> focused on transforming fragmented organizational data into reliable infrastructure for strategic decision-making. My work spans data stewardship, ETL architecture, dimensional modeling, and business intelligence — building systems that produce actionable metrics across institutional and commercial contexts.
-</p>
+  <!-- ===== BI FLOW SECTION (For business owners) — START ===== -->
+  <div id="bi-flow" class="bi-flow">
+    <p class="bi-flow-label">For business owners</p>
+    <h2 class="bi-flow-title">What a BI solution looks like</h2>
+    <div class="bi-flow-divider"></div>
+    <p class="bi-flow-intro">Business intelligence isn't reserved for large enterprises. Three questions, three answers.</p>
 
-<p>
-  I specialize in designing <strong>Data Marts</strong> that consolidate disconnected data sources into a single analytical layer, eliminating information silos and enabling on-demand reporting across multiple workstreams. My approach integrates research frameworks from institutions like <strong>Politecnico di Milano</strong>, <strong>UCSC-Chile</strong>, and <strong>Purdue</strong> to ensure analytical rigor and data integrity.
-</p>
+    <button class="read-more-btn" id="bi-flow-toggle" onclick="toggleBiFlow()">See the three answers +</button>
 
-<p>
-  I work with <strong>AI as a core tool</strong> — not to replace analytical judgment, but to scale it. Every solution is grounded in data stewardship: clean data, well-defined KPIs, and frameworks that reflect how organizations actually operate.
-</p>
-  </section>
+    <div class="bi-flow-content" id="bi-flow-content">
 
+    <p class="bi-flow-note">Right now, each of these probably lives in its own spreadsheet:</p>
+    <div class="flow-pills-row">
+      <span class="flow-pill">Sales</span>
+      <span class="flow-pill">Finance</span>
+      <span class="flow-pill">Operations</span>
+      <span class="flow-pill">Inventory</span>
+      <span class="flow-pill">Retention</span>
+      <span class="flow-pill">&amp; more</span>
+    </div>
+
+    <div class="stage-row">
+      <div class="stage-left">
+        <div class="stage-label">[ Stage 1: The investment ]</div>
+        <div class="stage-q">Think BI means new servers and a major IT overhaul?</div>
+      </div>
+      <div class="stage-arrow">
+        <svg width="30" height="14" viewBox="0 0 30 14"><line x1="2" y1="7" x2="23" y2="7" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/><polyline points="22,2 28,7 22,12" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/></svg>
+      </div>
+      <div class="flow-card">
+        <div class="flow-card-title">Investment</div>
+        <div class="flow-card-headline">From $14 / user / month</div>
+        <div class="flow-card-desc">A cloud subscription. No servers, no new hardware, no disruption to your operation.</div>
+      </div>
+    </div>
+
+    <div class="stage-row">
+      <div class="stage-left">
+        <div class="stage-label">[ Stage 2: The timeline ]</div>
+        <div class="stage-q">Expecting a year-long IT project?</div>
+      </div>
+      <div class="stage-arrow">
+        <svg width="30" height="14" viewBox="0 0 30 14"><line x1="2" y1="7" x2="23" y2="7" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/><polyline points="22,2 28,7 22,12" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/></svg>
+      </div>
+      <div class="flow-card">
+        <div class="flow-card-title">Time</div>
+        <div class="flow-card-headline">Weeks, not years</div>
+        <div class="flow-card-desc">First insights within weeks; a full solution in 2–3 months. Driven by your data quality.</div>
+      </div>
+    </div>
+
+    <div class="stage-row" style="margin-bottom:1.75rem;">
+      <div class="stage-left">
+        <div class="stage-label">[ Stage 3: The payoff ]</div>
+        <div class="stage-q">Still running the business from scattered files?</div>
+      </div>
+      <div class="stage-arrow">
+        <svg width="30" height="14" viewBox="0 0 30 14"><line x1="2" y1="7" x2="23" y2="7" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/><polyline points="22,2 28,7 22,12" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/></svg>
+      </div>
+      <div class="flow-card final">
+        <div class="flow-card-title">Result</div>
+        <div class="flow-card-headline">Interactive dashboards</div>
+        <div class="flow-card-desc">Centralized information and live metrics, on any device.</div>
+      </div>
+    </div>
+
+    <div style="border-left:2px solid var(--gold);padding:0.75rem 0 0.75rem 1.25rem;">
+      <p style="font-size:0.92rem;color:var(--text);font-weight:300;letter-spacing:0.02em;line-height:1.6;">80% of the work is preparing the data — not building the dashboard. The dashboard is just the visible part: behind it, <span style="color:var(--gold);font-weight:400;">the analyst works the full cycle</span> — cleaning and transforming raw data, defining metrics, building the visuals, and maintaining the solution as the organization grows.</p>
+    </div>
+
+    </div><!-- /bi-flow-content -->
+  </div>
+  <!-- ===== BI FLOW SECTION — END ===== -->
+
+  <script>
+    function toggleBiFlow(){
+      var c=document.getElementById('bi-flow-content');
+      var b=document.getElementById('bi-flow-toggle');
+      var open=c.classList.toggle('open');
+      b.textContent=open?'Hide the answers −':'See the three answers +';
+    }
+  </script>
+
+
+  <!-- ===== PROJECTS SECTION — START ===== -->
+<section id="projects">
+  <p class="section-label">Work</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="section-divider"></div>
+
+  <!-- SKILLS — debajo de Projects, arriba de las tarjetas -->
   <div id="skills">
-    <p class="section-label">Technical Skills</p>
-    <h2 class="section-title">Tools &amp; Methods</h2>
-    <div class="section-divider"></div>
+    <p class="section-label">Technical Skills — Tools &amp; Methods</p>
     <div class="skills-grid">
       <span class="skill-pill">Python</span><span class="skill-pill">SQL</span><span class="skill-pill">Power BI</span><span class="skill-pill">Tableau</span><span class="skill-pill">Data Cleaning</span><span class="skill-pill">Data Validation</span><span class="skill-pill">Anomaly Detection</span><span class="skill-pill">Student Retention</span><span class="skill-pill">Labour Market Analysis</span><span class="skill-pill">Cognos</span><span class="skill-pill">ETL</span><span class="skill-pill">Disaggregated Analysis</span><span class="skill-pill">Clustering</span><span class="skill-pill">Regression Analysis</span><span class="skill-pill">Git &amp; GitHub</span><span class="skill-pill">Data Mart Architecture</span>
     </div>
   </div>
 
-  <section id="projects">
-    <p class="section-label">Work</p>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-divider"></div>
-    <div class="category-nav">
-      <div class="category-card active" onclick="showCategory('analysis',this)"><div class="cat-icon">&#9881;</div><div class="cat-title">Data Analysis &amp; Auditing</div><div class="cat-desc">Python — data quality, cleaning, validation, and anomaly detection.</div></div>
-      <div class="category-card" onclick="showCategory('visualization',this)"><div class="cat-icon">&#9672;</div><div class="cat-title">Visualization &amp; Dashboards</div><div class="cat-desc">Power BI, Tableau, and Python — from static reports to interactive dashboards.</div></div>
-      <div class="category-card" onclick="showCategory('education',this)"><div class="cat-icon">&#9633;</div><div class="cat-title">Education Domain</div><div class="cat-desc">Pilots and proposals — retention, early alert systems, academic performance.</div></div>
-      <div class="category-card" onclick="showCategory('commercial',this)"><div class="cat-icon">&#9670;</div><div class="cat-title">Cross-Industry</div><div class="cat-desc">Kaggle projects in retail, healthcare, and small business — demonstrating transferability beyond education.</div></div>
-    </div>
+  <div class="category-nav">
+    <div class="category-card active" onclick="showCategory('analysis',this)"><div class="cat-icon">&#9881;</div><div class="cat-title">Data Analysis &amp; Auditing</div><div class="cat-desc">Python — data quality, cleaning, validation, and anomaly detection.</div></div>
+    <div class="category-card" onclick="showCategory('visualization',this)"><div class="cat-icon">&#9672;</div><div class="cat-title">Visualization &amp; Dashboards</div><div class="cat-desc">Power BI, Tableau, and Python — from static reports to interactive dashboards.</div></div>
+    <div class="category-card" onclick="showCategory('education',this)"><div class="cat-icon">&#9633;</div><div class="cat-title">Education Domain</div><div class="cat-desc">Pilots and proposals — retention, early alert systems, academic performance.</div></div>
+    <div class="category-card" onclick="showCategory('commercial',this)"><div class="cat-icon">&#9670;</div><div class="cat-title">Cross-Industry</div><div class="cat-desc">Kaggle projects in retail, healthcare, and small business — demonstrating transferability beyond education.</div></div>
+  </div>
 
     <!-- PANEL: Data Analysis & Auditing -->
     <div id="panel-analysis" class="project-panel active">
@@ -1181,7 +1281,29 @@
 </div>
 </div>
     <!-- end panel-commercial -->
-  
+  <!-- ===== PROJECTS SECTION — END ===== -->
+
+  <!-- ===== ABOUT SECTION — START ===== -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <h2 class="section-title">Organizational Intelligence<br>Through Rigorous Analysis</h1>
+    <div class="section-divider"></div>
+
+    <p>
+  I'm a <strong>Data Analyst & BI Developer</strong> focused on transforming fragmented organizational data into reliable infrastructure for strategic decision-making. My work spans data stewardship, ETL architecture, dimensional modeling, and business intelligence — building systems that produce actionable metrics across institutional and commercial contexts.
+</p>
+<p>
+  I specialize in designing <strong>Data Marts</strong> that consolidate disconnected data sources into a single analytical layer, eliminating information silos and enabling on-demand reporting across multiple workstreams. My approach integrates research frameworks from institutions like <strong>Politecnico di Milano</strong>, <strong>UCSC-Chile</strong>, and <strong>Purdue</strong> to ensure analytical rigor and data integrity.
+</p>
+<p>
+  I work with <strong>AI as a core tool</strong> — not to replace analytical judgment, but to scale it. Every solution is grounded in data stewardship: clean data, well-defined KPIs, and frameworks that reflect how organizations actually operate.
+</p>
+  </section>
+  <!-- ===== ABOUT SECTION — END ===== -->
+  </div>
+</div>
+
+  <!-- ===== CONTACT SECTION — START ===== -->
   <section id="contact" style="border-top:1px solid var(--border);">
     <p class="section-label">Contact</p>
     <h2 class="section-title">Get in Touch</h2>
@@ -1192,6 +1314,7 @@
       <a href="https://linkedin.com/in/jorge-riquelme-data" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
   </section>
+  <!-- ===== CONTACT SECTION — END ===== -->
 
   <footer>
     <span class="footer-name">Jorge Riquelme</span>
