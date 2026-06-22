@@ -1258,6 +1258,91 @@
     </div>
 
     <p class="case-note">Built on a public Kaggle dataset (CC0 Public Domain). IDEAL_RATE adjustment documented as an analytical assumption. Dashboard developed independently for portfolio purposes.</p>
+</div>
+</div>
+<div class="case-card">
+  <div class="case-header" onclick="toggleAccordion(this)">
+    <div class="case-info">
+      <div class="case-tag"><span class="live-badge"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="17" y="9" width="4" height="12" rx="1"/></svg> Live Power BI</span><span class="tag-sep">·</span>Funnel Analysis<span class="tag-sep">·</span>DAX / Python / Kaggle</div>
+      <h3 class="case-title">Olist B2B Sales Funnel: Marketing-to-Sales Conversion</h3>
+    </div>
+    <div class="case-icon">+</div>
+  </div>
+  <div class="case-body">
+
+    <div class="case-section">
+      <div class="case-section-title">Context</div>
+      <p>Olist is a Brazilian e-commerce marketplace that connects small and mid-size sellers to larger sales channels. Before a seller becomes active, it moves through a <strong style="color:var(--gold);">B2B sales funnel</strong>: a lead lands on a marketing page (MQL) &rarr; a Sales Development Rep (SDR) contacts and schedules a consultation &rarr; a Sales Rep (SR) runs it and closes or loses the deal &rarr; a closed deal becomes an active seller. This dashboard turns two public Olist tables into an interactive funnel analysis: <strong>8,000 marketing qualified leads</strong> and <strong>842 closed deals</strong>.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Core Constraint</div>
+      <p>The dataset records only the <strong style="color:var(--gold);">first stage</strong> (MQL) and the <strong style="color:var(--gold);">last stage</strong> (closed deal). Intermediate stages are not recorded for lost leads &mdash; so <em>segment, lead type, behaviour profile, SDR and SR exist only for the 842 converted deals</em>, never for the 7,158 that didn't convert. Every design decision respects this: where the data could only describe the converted population, it is presented as <strong>volume, share and velocity</strong> &mdash; never as a conversion rate that would require a denominator the data doesn't have.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">The Approach</div>
+      <p>A five-page Power BI report (Overview, Funnel Analysis, Sales Team Performance, Rep Efficiency, plus a documentation page) built on a star schema: <code>fact_funnel</code> (8,000 rows) with dimensions for origin, segment, seller, SDR, SR, and a Calendar spanning both the lead and deal windows. Python (pandas) handled cleaning and feature engineering; Power Query handled typing and the date relationship.</p>
+      <div style="position:relative;width:100%;padding-bottom:62.25%;height:0;overflow:hidden;border:1px solid var(--gold-soft);border-radius:4px;margin-top:1.2rem;">
+        <iframe
+          title="Olist Sales Funnel"
+          src="https://app.powerbi.com/view?r=eyJrIjoiOTAwNzk1ZjMtYTcxMS00ZTU0LTk3NDYtYjFhYTY1NmMzYTg1IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=1fb65092bc47d030d999"
+          frameborder="0"
+          allowfullscreen="true"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+        </iframe>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed &mdash; public Olist data. Built with Power BI Publish to Web.</p>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">DAX Patterns &amp; Why</div>
+      <div style="overflow-x:auto;margin-top:1rem;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead><tr>
+            <th style="text-align:left;padding:0.6rem 1rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Pattern</th>
+            <th style="text-align:left;padding:0.6rem 1rem;background:#2a2d32;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-soft);">Why this pattern</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">USERELATIONSHIP</td><td style="padding:0.5rem 1rem;color:var(--muted);">Two dates (lead entry vs. deal close) with a real lag. An inactive relationship lets one Calendar drive both timelines on the same axis, no duplicate date table.</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">CALCULATE + ALL</td><td style="padding:0.5rem 1rem;color:var(--muted);">Removes filter context to compute each segment's / rep's <em>share of all closed deals</em> &mdash; composition, explicitly not a conversion rate.</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">DIVIDE</td><td style="padding:0.5rem 1rem;color:var(--muted);">Safe division &mdash; returns blank instead of erroring on a zero denominator.</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">MEDIAN</td><td style="padding:0.5rem 1rem;color:var(--muted);">Mean close time (48.5 days) is inflated by a long tail; the median (14 days) is the typical deal. A deliberate choice for a right-skewed distribution.</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">TOPN + CONCATENATEX + MAXX</td><td style="padding:0.5rem 1rem;color:var(--muted);">Finds each rep's dominant segment and handles ties honestly &mdash; tied segments are listed with a flag instead of arbitrarily picking one.</td></tr>
+            <tr><td style="padding:0.5rem 1rem;color:var(--text);font-weight:400;">DISTINCTCOUNT</td><td style="padding:0.5rem 1rem;color:var(--muted);">Unique counts for KPI context (e.g., 842 sellers activated = the funnel outcome).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Measures deliberately removed</button>
+      <div class="read-more-content">
+        <p>Part of the work was removing metrics that looked useful but were invalid:</p>
+        <ul style="list-style:none;padding-left:0;margin-top:0.5rem;font-size:0.88rem;color:var(--muted);">
+          <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Total Revenue</strong> &mdash; 95% zeros plus self-declared outliers (one value = 81% of the sum). It's the prospect's self-reported revenue at lead capture, not deal revenue. The data supports a conversion story, not a revenue one.</li>
+          <li style="margin-bottom:0.5rem;"><strong style="color:var(--text);">Conversion rate by SDR / SR</strong> &mdash; tautological: rep IDs exist only on closed deals, so the ratio always returns 100%. No denominator of leads-per-rep exists.</li>
+          <li><strong style="color:var(--text);">Year-over-year growth</strong> &mdash; neither year is complete, so 2017 vs. 2018 compared unequal partial periods (Deal Growth returned a meaningless ~280&times;). Monthly trend lines tell the story without the bias.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Limitations</div>
+      <ul style="list-style:none;padding-left:0;margin-top:0.5rem;font-size:0.88rem;color:var(--muted);">
+        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">No mid-funnel visibility</strong> &mdash; segment, rep, type and profile exist only for converted deals.</li>
+        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">No conversion rate by segment or rep</strong> &mdash; no denominator of leads at that grain; only volume, share and velocity are valid.</li>
+        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">No revenue dimension</strong> &mdash; the only revenue-like field is unreliable and conceptually wrong as deal revenue.</li>
+        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Small-sample reps</strong> &mdash; reps with 1&ndash;3 deals show extreme close times; flagged by bubble size and notes.</li>
+        <li><strong style="color:var(--text);">Incomplete period boundaries</strong> &mdash; lead and deal windows don't fully overlap, producing the visible lead-to-close lag.</li>
+      </ul>
+    </div>
+
+    <div class="case-section">
+      <div class="case-section-title">Data Governance</div>
+      <p>The ~14% of leads with no recorded acquisition channel are surfaced as a <strong style="color:var(--gold);">data-governance finding</strong> (an attribution blind spot), not imputed. Labeling distinguishes "Not reported" (missing administrative data) from "Unknown" (undetermined marketing profile), and compound behaviour profiles are grouped as "Mixed Profile".</p>
+    </div>
+
+    <p class="case-note">Built with two public Olist tables &mdash; <a href="https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist" target="_blank" style="color:var(--gold);text-decoration:none;">Marketing Funnel by Olist (Kaggle, CC0 Public Domain)</a>. Dashboard embedded via Power BI Publish to Web.</p>
 
   </div>
 </div>
