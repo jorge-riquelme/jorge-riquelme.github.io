@@ -266,14 +266,14 @@
   </div>
 
   <div class="category-nav">
-    <div class="category-card active" onclick="showCategory('analysis',this)"><div class="cat-icon">&#9881;</div><div class="cat-title">Data Analysis &amp; Auditing</div><div class="cat-desc">Python — data quality, cleaning, validation, and anomaly detection.</div></div>
-    <div class="category-card" onclick="showCategory('visualization',this)"><div class="cat-icon">&#9672;</div><div class="cat-title">Visualization &amp; Dashboards</div><div class="cat-desc">Power BI, Tableau, and Python — from static reports to interactive dashboards.</div></div>
-    <div class="category-card" onclick="showCategory('education',this)"><div class="cat-icon">&#9633;</div><div class="cat-title">Education Domain</div><div class="cat-desc">Pilots and proposals — retention, early alert systems, academic performance.</div></div>
+    <div class="category-card active" onclick="showCategory('visualization',this)"><div class="cat-icon">&#9672;</div><div class="cat-title">Visualization &amp; Dashboards</div><div class="cat-desc">Power BI, Tableau, and Python — from static reports to interactive dashboards.</div></div>
     <div class="category-card" onclick="showCategory('commercial',this)"><div class="cat-icon">&#9670;</div><div class="cat-title">Cross-Industry</div><div class="cat-desc">Kaggle projects in retail, healthcare, and small business — demonstrating transferability beyond education.</div></div>
+    <div class="category-card" onclick="showCategory('education',this)"><div class="cat-icon">&#9633;</div><div class="cat-title">Education Domain</div><div class="cat-desc">Pilots and proposals — retention, early alert systems, academic performance.</div></div>
+    <div class="category-card" onclick="showCategory('analysis',this)"><div class="cat-icon">&#9881;</div><div class="cat-title">Data Analysis &amp; Auditing</div><div class="cat-desc">Python — data quality, cleaning, validation, and anomaly detection.</div></div>
   </div>
 
     <!-- PANEL: Data Analysis & Auditing -->
-    <div id="panel-analysis" class="project-panel active">
+    <div id="panel-analysis" class="project-panel">
 
       <div class="case-card">
         <div class="case-header" onclick="toggleAccordion(this)">
@@ -627,7 +627,7 @@
     <!-- end panel-analysis -->
 
     <!-- PANEL: Visualization & Dashboards -->
-    <div id="panel-visualization" class="project-panel">
+    <div id="panel-visualization" class="project-panel active">
     <div class="case-card">
   <div class="case-header" onclick="toggleAccordion(this)">
     <div class="case-info">
