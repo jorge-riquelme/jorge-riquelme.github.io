@@ -1,2 +1,2 @@
 # jorge-riquelme.github.io
-Mi portafolio personal
+Data analyst portfolio — applied BI case studies across education, retail, and marketplace analytics. Power BI, Python, Dataverse.
