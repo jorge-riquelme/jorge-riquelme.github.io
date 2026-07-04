@@ -95,28 +95,6 @@
     .case-image{margin:1.5rem 0 0.5rem;border:1px solid var(--gold-soft);border-radius:4px;overflow:hidden;}
             .case-image img{width:100%;display:block;image-rendering:auto;filter:contrast(1.02) saturate(1.0);}
     .case-image-caption{font-size:0.75rem;color:var(--muted);font-style:italic;padding:0.4rem 0.5rem 0.75rem;}
-    .crm-gallery{display:flex;justify-content:center;align-items:center;margin-top:1rem;}
-    .crm-cover{display:flex;flex-direction:column;align-items:center;gap:1rem;max-width:760px;width:100%;}
-    .crm-cover-image-wrap{width:100%;border:1px solid var(--gold-soft);border-radius:6px;overflow:hidden;background:var(--bg-card);padding:0.35rem;}
-    .crm-cover-image{display:block;width:100%;max-height:420px;object-fit:contain;background:rgba(255,255,255,0.02);image-rendering:auto;filter:contrast(1.02) saturate(1.0);}
-    .crm-cover-cta{display:inline-flex;align-items:center;justify-content:center;padding:0.7rem 1.4rem;border:1px solid var(--gold-soft);border-radius:4px;background:rgba(212,175,55,0.08);color:var(--gold);font-size:0.9rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease,transform 0.2s ease;}
-    .crm-cover-cta:hover,.crm-cover-cta:focus-visible{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:translateY(-1px);outline:none;}
-    .crm-thumb{display:none;}
-    .lightbox-overlay{position:fixed;inset:0;background:rgba(8,10,12,0.9);display:flex;align-items:center;justify-content:center;padding:1.5rem;z-index:400;opacity:0;visibility:hidden;transition:opacity 0.25s ease,visibility 0.25s ease;}
-    .lightbox-overlay.open{opacity:1;visibility:visible;}
-    .lightbox-panel{width:min(100%,1100px);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:0.9rem;position:relative;}
-    .lightbox-image-wrap{width:100%;display:flex;align-items:center;justify-content:center;}
-    .lightbox-image{display:block;max-width:100%;max-height:74vh;object-fit:contain;border:1px solid var(--gold-soft);border-radius:6px;background:var(--bg-card);box-shadow:0 18px 50px rgba(0,0,0,0.35);}
-    .lightbox-meta{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--text);font-size:0.85rem;}
-    .lightbox-counter{color:var(--muted);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;}
-    .lightbox-caption{color:var(--text);font-size:0.92rem;line-height:1.5;text-align:center;max-width:860px;}
-    .lightbox-nav,.lightbox-close{background:rgba(255,255,255,0.06);border:1px solid var(--gold-soft);color:var(--text);border-radius:999px;width:2.5rem;height:2.5rem;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease;}
-    .lightbox-nav:hover,.lightbox-close:hover,.lightbox-nav:focus-visible,.lightbox-close:focus-visible{background:rgba(212,175,55,0.12);border-color:var(--gold);outline:none;}
-    .lightbox-controls{display:flex;align-items:center;gap:0.6rem;}
-    .lightbox-close{font-size:1.15rem;line-height:1;}
-    body.lightbox-open{overflow:hidden;}
-    @media (max-width: 900px){.crm-gallery{grid-template-columns:repeat(2,minmax(0,1fr));}}
-    @media (max-width: 560px){.crm-gallery{grid-template-columns:1fr;}.lightbox-overlay{padding:1rem;}.lightbox-caption{font-size:0.84rem;}.lightbox-meta{flex-direction:column;align-items:center;text-align:center;}.lightbox-controls{width:100%;justify-content:center;}}
     .case-note{font-size:0.75rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:1rem;margin-top:1.5rem;}
     .bi-flow{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 4rem;max-width:1200px;margin:0 auto;}
     .bi-flow-label{font-size:0.75rem;font-weight:400;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem;}
@@ -1114,7 +1092,7 @@
             <p>The system consolidates data from institutional warehouses through an ETL process into a specialized Educational Data Mart, implemented as a Constellation Schema that integrates three types of information — historical, real-time, and forecast data — segmented into multidimensional domains covering partial grades, enrollment trends, teaching competencies, retention, and graduation outcomes. Designed for monitoring, following up, predicting, and analyzing results, the analytical layer feeds into an interactive Power BI environment where threshold-based alerts trigger early intervention workflows coordinated across advisors, faculty, and student success teams.</p>
             <div class="case-image">
               <img src="images/EWS_Diagram.png" alt="EWS Data Architecture and Analytics Layer" />
-              <div class="case-image-caption">Figure 1: EWS Data Architecture &amp; Analytics Layer — from institutional databases through ETL to Risk Index Generation and Early Alert coordination. Based on the SAT Centinela early-warning model developed at Universidad Católica de la Santísima Concepción (Casanova Cruz, Miranda Díaz &amp; Yáñez Corvalán, 2021), used with permission.</div>
+              <div class="case-image-caption">Figure 1: EWS Data Architecture &amp; Analytics Layer — from institutional databases through ETL to Risk Index Generation and Early Alert coordination.</div>
             </div>
           </div>
           <div class="case-section">
@@ -1378,104 +1356,8 @@
       <div class="case-section-title">Data Governance</div>
       <p>The ~14% of leads with no recorded acquisition channel are surfaced as a <strong style="color:var(--gold);">data-governance finding</strong> (an attribution blind spot), not imputed. Labeling distinguishes "Not reported" (missing administrative data) from "Unknown" (undetermined marketing profile), and compound behaviour profiles are grouped as "Mixed Profile".</p>
     </div>
-    <p class="case-note">Built with two public Olist tables &mdash; <a href="https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist" target="_blank" style="color:var(--gold);text-decoration:none;">Marketing Funnel by Olist (Kaggle, CC0 Public Domain)</a>. Dashboard embedded via Power BI Publish to Web.</p>   
-    
-    </div>
-    </div>
-    <div class="case-card">
-  <div class="case-header" onclick="toggleAccordion(this)">
-    <div class="case-info">
-      <div class="case-tag"><span class="live-badge"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="4" width="4" height="17" rx="1"/><rect x="17" y="9" width="4" height="12" rx="1"/></svg> Live Power BI</span><span class="tag-sep">·</span><span class="live-badge"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg> Power Apps</span><span class="tag-sep">·</span>Cross-Industry &middot; Power Apps / Dataverse / Power BI</div>
-      <h3 class="case-title">Seller CRM: Operational Analytics &amp; Lifecycle Management (Olist Ecosystem)</h3>
-    </div>
-    <div class="case-icon">+</div>
-  </div>
-  <div class="case-body">
 
-    <p style="font-size:0.98rem;color:var(--muted);font-weight:300;letter-spacing:0.3px;margin-bottom:0.5rem;">
-      Of <strong style="color:var(--text);">3,095</strong> marketplace sellers, <strong style="color:var(--gold);">292 are at risk</strong> and <strong style="color:var(--gold);">910 are dormant</strong>. Surfacing that split took more than a dashboard &mdash; it took an end-to-end system that models sellers, scores their risk, and routes attention to where it matters. A complement to the <strong style="color:var(--text);">Olist B2B funnel</strong>: acquisition there, seller management here. My first build in Power Apps and Dataverse.
-    </p>
-
-    <div class="case-section">
-      <div class="case-section-title">The Problem</div>
-      <p>A sales funnel shows how sellers arrive; it says nothing about how they perform once they're selling. Marketplaces lose revenue quietly &mdash; sellers drift into poor delivery, low review scores, or inactivity, with no system flagging the decline until they've effectively churned. The gap isn't analytical, it's <strong style="color:var(--gold);">operational</strong>: there was no place to manage sellers as ongoing relationships rather than one-time conversions.</p>
-    </div>
-
-    <div class="case-section">
-      <div class="case-section-title">The Approach</div>
-      <p>I built a model-driven CRM in Power Apps over a Dataverse relational model &mdash; seven tables connected through 1:N relationships, with the seller as the central business entity, plus an eighth table (Seller Interaction) as the management layer. Five KPIs &mdash; total revenue, order count, average review score, late-delivery rate, and recency &mdash; were engineered in Python from the raw Olist tables. A lifecycle stage (Active, At Risk, or Dormant) was then derived from those KPIs using transparent, data-driven thresholds.</p>
-      <button class="read-more-btn" onclick="toggleReadMore(this)">+ Why compute outside the system</button>
-      <div class="read-more-content">
-        <p>A deliberate architectural choice: the KPIs and risk scoring were computed outside Power BI &mdash; in Python and a Dataverse dataflow &mdash; since metrics like late-delivery rate and multi-hop review attribution can't be expressed as Dataverse rollups. Values were loaded into Dataverse through a live Excel connection and the dataflow.</p>
-      </div>
-    </div>
-
-    <div class="case-section">
-      <div class="case-section-title">Data Model &amp; Lifecycle Logic</div>
-      <p>The risk rules were replicated inside Dataverse via a dataflow and cross-validated against the Python snapshot &mdash; both produced identical results (<strong style="color:var(--text);">1,893 Active / 292 At Risk / 910 Dormant</strong>), treating data agreement as a build checkpoint.</p>
-      <ul style="list-style:none;padding-left:0;margin-top:0.75rem;font-size:0.88rem;color:var(--muted);">
-        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">Dormant</strong> &mdash; 180+ days without an order.</li>
-        <li style="margin-bottom:0.4rem;"><strong style="color:var(--text);">At Risk</strong> &mdash; an active seller with a review score below 3.0 <em>or</em> a late-delivery rate above 20%.</li>
-        <li><strong style="color:var(--text);">Priority</strong> &mdash; Dormant takes precedence: a seller who has gone quiet is no longer "at risk," they have already lapsed.</li>
-      </ul>
-    </div>
-
-    <div class="case-section">
-      <div class="case-section-title">View gallery</div>
-      <div class="crm-gallery" data-lightbox-gallery="crm-case">
-        <div class="crm-cover">
-          <div class="crm-cover-image-wrap">
-            <img class="crm-cover-image" src="images/CRM_2.png" alt="Dataverse relational model" loading="lazy" />
-          </div>
-          <button class="crm-cover-cta" type="button" onclick="openLightboxFromButton(this)" data-lightbox-start-index="1" data-src="images/CRM_2.png" data-caption="Figure 2: Dataverse relational model — seven Olist tables connected through 1:N relationships, with Order Item as the bridge." aria-label="Open CRM gallery from cover image">
-            Open gallery (6) →
-          </button>
-        </div>
-
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_1.png" data-caption="Figure 1: The seller record — lifecycle stage, account manager, and five computed KPIs in a single operational view." aria-label="Open image 1" hidden>
-          <img src="images/CRM_1.png" alt="Seller record with lifecycle stage and computed KPIs" loading="lazy" />
-        </button>
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_2.png" data-caption="Figure 2: Dataverse relational model — seven Olist tables connected through 1:N relationships, with Order Item as the bridge." aria-label="Open image 2" hidden>
-          <img src="images/CRM_2.png" alt="Dataverse relational model" loading="lazy" />
-        </button>
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_3.png" data-caption="Figure 3: Risk-scoring logic inside a Dataverse dataflow — recency, score, and delivery thresholds derive the lifecycle stage." aria-label="Open image 3" hidden>
-          <img src="images/CRM_3.png" alt="Risk-scoring logic in a Dataverse dataflow" loading="lazy" />
-        </button>
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_4.png" data-caption="Figure 4: The seller list (3,095 records) with the validation chart — At-Risk sellers show the lowest average review score." aria-label="Open image 4" hidden>
-          <img src="images/CRM_4.png" alt="Seller list with validation chart" loading="lazy" />
-        </button>
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_5.png" data-caption="Figure 5: The eight tables behind the CRM, including Seller Interaction — the management layer over the imported Olist data." aria-label="Open image 5" hidden>
-          <img src="images/CRM_5.png" alt="The eight tables behind the CRM" loading="lazy" />
-        </button>
-        <button class="crm-thumb" type="button" onclick="openLightboxFromButton(this)" data-src="images/CRM_6.png" data-caption="Figure 6: The interaction-capture form — where account managers log contacts, outcomes, and follow-ups." aria-label="Open image 6" hidden>
-          <img src="images/CRM_6.png" alt="Interaction-capture form" loading="lazy" />
-        </button>
-      </div>
-    </div>
-
-    <div class="case-section">
-      <div class="case-section-title">Live Dashboard &mdash; Power BI</div>
-      <p>The CRM connects live to Power BI through the Dataverse connector, surfacing the seller portfolio across three views: an <strong style="color:var(--text);">overview</strong> (KPIs, lifecycle split, performance validation), a <strong style="color:var(--text);">geographic view</strong> (sellers mapped across Brazil's states with region-level cards), and an <strong style="color:var(--text);">operational at-risk view</strong> (the 292 flagged sellers, ranked by severity and broken down by reason). Interact with it directly:</p>
-      <div style="position:relative;width:100%;padding-bottom:62.25%;height:0;overflow:hidden;border:1px solid var(--gold-soft);border-radius:4px;margin-top:1.2rem;">
-        <iframe
-          title="Olist Seller CRM"
-          src="https://app.powerbi.com/view?r=eyJrIjoiMDg0YzhlZjYtZWY2NC00ODk5LWE5MTYtNDg3NzY4MTI3MWE3IiwidCI6IjZmNGZmNjhhLTk1YjAtNDA2MS1iMTJiLWY3YmU2OTEwZjE2YSJ9&pageName=cb1325eb59139a6058e1"
-          frameborder="0"
-          allowfullscreen="true"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
-        </iframe>
-      </div>
-      <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Live embed &mdash; public Olist data. Built with Power BI via the Dataverse connector.</p>
-    </div>
-
-    <div class="case-section">
-      <div class="case-section-title">Transferability</div>
-      <p>The pattern generalizes beyond marketplaces: any organization managing a portfolio of ongoing relationships &mdash; vendors, accounts, students, members &mdash; needs the same architecture. Model the entity, compute performance metrics, derive a lifecycle stage from transparent rules, and surface it where someone can act. The tools change; the operational logic doesn't.</p>
-    </div>
-
-    <p class="case-note">First end-to-end build in Power Apps and Dataverse, developed as a learning case study on the public Olist e-commerce dataset (CC0). Framed around decisions and lessons learned &mdash; including the limitations preserved by design.</p>
+    <p class="case-note">Built with two public Olist tables &mdash; <a href="https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist" target="_blank" style="color:var(--gold);text-decoration:none;">Marketing Funnel by Olist (Kaggle, CC0 Public Domain)</a>. Dashboard embedded via Power BI Publish to Web.</p>
 
   </div>
 </div>
@@ -1545,122 +1427,6 @@
       btn.textContent = isOpen ? "+ Read more" : "\u2212 Read less";
     }
   
-    let lightboxState = { open: false, items: [], index: 0, startX: 0, startY: 0 };
-
-    function createLightbox() {
-      if (document.getElementById("portfolio-lightbox")) return;
-
-      const overlay = document.createElement("div");
-      overlay.id = "portfolio-lightbox";
-      overlay.className = "lightbox-overlay";
-      overlay.innerHTML = `
-        <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image gallery">
-          <div class="lightbox-image-wrap">
-            <img class="lightbox-image" src="" alt="" />
-          </div>
-          <div class="lightbox-meta">
-            <div class="lightbox-controls">
-              <button class="lightbox-nav" type="button" onclick="showLightboxImage(lightboxState.index - 1)" aria-label="Previous image">←</button>
-              <button class="lightbox-close" type="button" onclick="closeLightbox()" aria-label="Close gallery">×</button>
-              <button class="lightbox-nav" type="button" onclick="showLightboxImage(lightboxState.index + 1)" aria-label="Next image">→</button>
-            </div>
-            <div class="lightbox-counter"></div>
-          </div>
-          <div class="lightbox-caption"></div>
-        </div>
-      `;
-
-      overlay.addEventListener("click", function (event) {
-        if (event.target === overlay) closeLightbox();
-      });
-
-      overlay.addEventListener("touchstart", function (event) {
-        if (event.touches.length === 1) {
-          lightboxState.startX = event.touches[0].clientX;
-          lightboxState.startY = event.touches[0].clientY;
-        }
-      }, { passive: true });
-
-      overlay.addEventListener("touchend", function (event) {
-        if (event.changedTouches.length !== 1) return;
-        const deltaX = event.changedTouches[0].clientX - lightboxState.startX;
-        const deltaY = event.changedTouches[0].clientY - lightboxState.startY;
-        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
-          showLightboxImage(lightboxState.index + (deltaX < 0 ? 1 : -1));
-        }
-      }, { passive: true });
-
-      document.body.appendChild(overlay);
-    }
-
-    function openLightbox(items, startIndex) {
-      createLightbox();
-      const overlay = document.getElementById("portfolio-lightbox");
-      const img = overlay.querySelector(".lightbox-image");
-      const caption = overlay.querySelector(".lightbox-caption");
-      const counter = overlay.querySelector(".lightbox-counter");
-
-      lightboxState.items = items;
-      lightboxState.index = Math.max(0, Math.min(startIndex, items.length - 1));
-      lightboxState.open = true;
-
-      overlay.classList.add("open");
-      document.body.classList.add("lightbox-open");
-      showLightboxImage(lightboxState.index, img, caption, counter);
-    }
-
-    function showLightboxImage(index, imgEl, captionEl, counterEl) {
-      const overlay = document.getElementById("portfolio-lightbox");
-      if (!overlay || !lightboxState.items.length) return;
-      const safeIndex = (index + lightboxState.items.length) % lightboxState.items.length;
-      lightboxState.index = safeIndex;
-
-      const item = lightboxState.items[safeIndex];
-      const img = imgEl || overlay.querySelector(".lightbox-image");
-      const caption = captionEl || overlay.querySelector(".lightbox-caption");
-      const counter = counterEl || overlay.querySelector(".lightbox-counter");
-
-      img.src = item.src;
-      img.alt = item.caption;
-      caption.textContent = item.caption;
-      counter.textContent = `${safeIndex + 1} / ${lightboxState.items.length}`;
-    }
-
-    function closeLightbox() {
-      const overlay = document.getElementById("portfolio-lightbox");
-      if (!overlay) return;
-      overlay.classList.remove("open");
-      document.body.classList.remove("lightbox-open");
-      lightboxState.open = false;
-    }
-
-    function openLightboxFromButton(button) {
-      const gallery = button.closest("[data-lightbox-gallery]");
-      if (!gallery) return;
-      const thumbs = Array.from(gallery.querySelectorAll(".crm-thumb"));
-      const items = thumbs.map((thumb) => ({
-        src: thumb.getAttribute("data-src"),
-        caption: thumb.getAttribute("data-caption")
-      }));
-      const explicitIndex = Number(button.getAttribute("data-lightbox-start-index"));
-      const index = Number.isInteger(explicitIndex) && explicitIndex >= 0
-        ? explicitIndex
-        : thumbs.indexOf(button);
-      openLightbox(items, index >= 0 ? index : 0);
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (!lightboxState.open) return;
-      if (event.key === "Escape") {
-        closeLightbox();
-      } else if (event.key === "ArrowRight") {
-        showLightboxImage(lightboxState.index + 1);
-      } else if (event.key === "ArrowLeft") {
-        showLightboxImage(lightboxState.index - 1);
-      }
-    });
-
-    document.addEventListener("DOMContentLoaded", createLightbox);
   </script>
 </body>
 </html>
